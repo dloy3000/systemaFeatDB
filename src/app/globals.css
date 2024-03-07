@@ -1,107 +1,545 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
+/* RESET */
 html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* color palette */
+:root {
+    background-color: transparent;
+    margin: 0;
+
+    --textPrimary: #fafafa;
+    --textHighlight: #E8DE35;
+    --accentPrimary: #960000;
+    --accentSecondary: #620000;
+    --containerPrimary: rgb(0, 0, 0, .94);
+    --containerPrimaryHighlight: rgb(0, 0, 0, .96);
+    --containerSecondary: rgb(0, 0, 0, .55);
+    --containerSecondaryHighlight: rgb(0, 0, 0, .60);
+    --bgPrimary: #1D212E;
+    --bgSecondary: #000000;
+}
+
+/* font */
+@font-face {
+    font-family: 'Squarified';
+    src: url(../../public/theme/fonts/Squarified.ttf);
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Square One';
+    font-style: normal;
+    font-weight: normal;
+    src: url(../../public/theme/fonts/Square_One.otf);
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Square One';
+    font-style: italic;
+    font-weight: normal;
+    src: url(../../public/theme/fonts/Square_One_Italic.otf);
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Square One';
+    font-style: normal;
+    font-weight: bold;
+    src: url(../../public/theme/fonts/Square_One_Bold.otf);
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Square One';
+    font-style: italic;
+    font-weight: bold;
+    src: url(../../public/theme/fonts/Square_One_Bold_Italic.otf);
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* text */
+.boldTitle {
+    font-family: 'Square One';
+    color: var(--textPrimary);
+    text-shadow: var(--accentSecondary) -2px 2px;
+    margin-top: -12px;
+    margin-bottom: -12px;
+}
+
+.cardTitle {
+    font-family: 'Square One';
+    color: var(--textPrimary);
+    margin-top: -12px;
+    margin-bottom: -12px;
+}
+
+.menuRef {
+    font-family: 'Square One';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 44px;
+    text-decoration: none;
+    color: var(--textPrimary);
+}
+
+.menuRef:hover {
+    color: var(--textHighlight);
+    transform: scale(1.01);
+    transition: transform 0.6s ease;
+}
+
+h1 {
+    font-family: 'Square One';
+    font-size: 44px;
+    color: var(--textPrimary);
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+
+h2 {
+    font-family: 'Square One';
+    font-size: x-large;
+    color: var(--textPrimary);
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+
+h3 {
+    font-family: 'Square One';
+    font-size: larger;
+    color: var(--textPrimary);
+    margin-top: -6px;
+    margin-bottom: -6px;
+}
+
+h4 {
+    font-family: 'Square One';
+    font-size: large;
+    color: var(--textPrimary);
+    margin-top: -4px;
+    margin-bottom: -4px;
+}
+
+h5 {
+    font-family: 'Square One';
+    font-size: medium;
+    color: var(--textPrimary);
+    margin-top: -4px;
+    margin-bottom: -4px;
+}
+
+h6 {
+    font-family: 'Square One';
+    font-size: medium;
+    color: var(--textPrimary);
+    margin-top: -2px;
+    margin-bottom: -2px;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    font-family: 'Squarified';
+    font-size: large;
+    color: var(--textPrimary);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Containers */
+.globalContainer {
+    display: flex;
+    padding: 44px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.globalFilter {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background: linear-gradient(180deg, transparent 0% 50%, var(--containerSecondary) 100%);
+    backdrop-filter: blur(4px);
+}
+
+.bodyContainer {
+    display: inline-flex;
+    align-items: center;
+    grid-template-columns: 2fr;
+}
+
+.video-background {
+    background: #303434;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -99;
+}
+
+.video-foreground,
+.video-background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.pic {
+    background-image: url("../../public/Systema-World_Logo.png");
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Navbar Containers */
+.navContainer {
+    display: inline-flex;
+    padding: 12px;
+}
+
+.navTile {
+    display: inline-block;
+    align-self: flex-start;
+
+    position: sticky;
+    position: -webkit-sticky;
+    top: 40px;
+    z-index: 99;
+
+    padding: 12px;
+    padding-left: 40px;
+    padding-right: 34px;
+    min-height: 40px;
+    min-width: 40px;
+}
+
+.menuTile {
+    background:
+        linear-gradient(225deg, transparent 0px 24px, var(--containerSecondary) 49% 50.01%, transparent 50%),
+        linear-gradient(45deg, transparent 0px 24px, var(--containerSecondary) 50% 50.0%, transparent 50%);
+    border-radius: 6px;
+    padding-left: 40px;
+    padding-right: 34px;
+    margin-bottom: 12px;
+
+    --pos: 0;
+}
+
+.menuTile:hover {
+    background:
+        linear-gradient(225deg, transparent 0px 24px, var(--containerPrimaryHighlight) 24px 50.01%, transparent 50%),
+        linear-gradient(45deg, transparent 0px 24px, var(--containerPrimaryHighlight) 24px 50.0%, transparent 50%);
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+
+    padding-left: 40px;
+    padding-right: 34px;
+
+    transform: scale(1.02);
+    transition: transform 0.6s ease;
+}
+
+/* Card Grid */
+.cardGrid {
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cardContainer {
+    display: inline-block;
+}
+
+/* CardBox Tileset */
+.cardBox {
+    padding: 20px;
+    padding-left: 40px;
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+}
+
+.cardBox.title {
+    background-color: var(--containerPrimary);
+}
+
+.cardBox.text {
+    background-color: var(--containerPrimary);
+    position: relative;
+    top: 12px;
+}
+
+.cardBox.display {
+    background-color: var(--containerSecondary);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cardBox:hover {
+    transform: scale(1.01);
+    transition: transform 0.6s ease;
+}
+
+.cardBox.text:hover {
+    background-color: var(--containerPrimaryHighlight);
+}
+
+.cardBox.display:hover {
+    background-color: var(--containerSecondaryHighlight);
+}
+
+/* TechBox Tileset */
+.techBox {
+    padding: 20px;
+    padding-right: 34px;
+    padding-left: 40px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    display: block;
+}
+
+.techBox.title {
+    background:
+        linear-gradient(225deg, transparent 0px 24px, var(--containerPrimary) 24px 50.01%, transparent 50%),
+        linear-gradient(45deg, transparent 0px 24px, var(--containerPrimary) 24px 50.0%, transparent 50%);
+}
+
+.techBox.text {
+    position: relative;
+    top: 12px;
+    background:
+        linear-gradient(225deg, transparent 0px 24px, var(--containerPrimary) 24px 50.01%, transparent 50%),
+        linear-gradient(45deg, transparent 0px 24px, var(--containerPrimary) 24px 50.0%, transparent 50%);
+}
+
+.techBox.display {
+    margin-left: 12px;
+    vertical-align: bottom;
+    background-size: cover;
+    background:
+        linear-gradient(225deg, transparent 0px 24px, var(--containerSecondary) 24px 50.01%, transparent 50%),
+        linear-gradient(45deg, transparent 0px 24px, var(--containerSecondary) 24px 50.0%, transparent 50%);
+}
+
+.techBox:hover {
+    transform: scale(1.01);
+    transition: transform 0.6s ease;
+    background:
+        linear-gradient(225deg, transparent 0px 24px, var(--containerPrimaryHighlight) 24px 50.15%, transparent 50%),
+        linear-gradient(45deg, transparent 0px 24px, var(--containerPrimaryHighlight) 24px 50.0%, transparent 50%);
+}
+
+.techBox.display:hover {
+    transform: scale(1.01);
+    transition: transform 0.6s ease;
+    background:
+        linear-gradient(225deg, transparent 0px 24px, var(--containerSecondaryHighlight) 24px 50.1%, transparent 50%),
+        linear-gradient(45deg, transparent 0px 24px, var(--containerSecondaryHighlight) 24px 50.0%, transparent 50%);
+}
+
+/* Decorations */
+.divider {
+    min-height: 1px;
+    border-top: 1px solid var(--textPrimary);
+}
+
+.systemaDiamondTop {
+    position: absolute;
+    left: -4px;
+    border: 0px solid var(--textPrimary);
+    width: 0px;
+    height: 0px;
+    animation: none;
+}
+
+.systemaDiamondShade {
+    position: absolute;
+    left: -7px;
+    border: 0px solid var(--accentPrimary);
+    width: 0px;
+    height: 0px;
+    animation: none;
+}
+
+.techBox:hover .systemaDiamondTop {
+    width: 14px;
+    height: 14px;
+    border: 8px solid var(--textPrimary);
+    animation: spin 4s linear infinite;
+    transition: transform 3s ease;
+}
+
+.techBox:hover .systemaDiamondShade {
+    width: 14px;
+    height: 14px;
+    border: 8px solid var(--accentSecondary);
+    animation: spin 4s linear infinite;
+    transition: transform 3s ease;
+}
+
+.cardBox:hover .systemaDiamondTop {
+    width: 14px;
+    height: 14px;
+    border: 8px solid var(--textPrimary);
+    animation: spin 4s linear infinite;
+    transition: transform 3s ease;
+}
+
+.cardBox:hover .systemaDiamondShade {
+    width: 14px;
+    height: 14px;
+    border: 8px solid var(--accentSecondary);
+    animation: spin 4s linear infinite;
+    transition: transform 3s ease;
+}
+
+.menuContainer:hover .systemaDiamondTop {
+    width: 14px;
+    height: 14px;
+    border: 8px solid var(--textPrimary);
+    animation: spin 4s linear infinite;
+
+    transition: top 0.3s ease 0.0s;
+
+    top: 0;
+    left: 34px;
+}
+
+.menuContainer:hover .systemaDiamondShade {
+    width: 14px;
+    height: 14px;
+    border: 8px solid var(--accentSecondary);
+    animation: spin 4s linear infinite;
+
+    transition: top 0.3s ease 0.0s;
+
+    top: 0;
+    left: 31px;
+}
+
+.displayPos {
+    position: absolute;
+    left: -50px
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 14px;
+    height: 8px;
+    padding: 4px;
+    outline: 2px solid var(--bgSecondary);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--bgSecondary);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--textPrimary);
+    border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--textHighlight);
 }

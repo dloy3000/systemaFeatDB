@@ -1,95 +1,95 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import TechBox from "@/interface/tiles/card/TechBox";
+import CardBox from "@/interface/tiles/card/CardSet";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
+    <div>
+      <TechBox title={"Power On!"} text={
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
+          <h1>h1</h1>
+          <h2>h2</h2>
+          <h3>h3</h3>
+          <h4>h4</h4>
+          <h5>h5</h5>
+          <h6>h6</h6>
           <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            This is a text box with cool stuff in it.
           </p>
-        </a>
-      </div>
-    </main>
+        </div>
+      } imgSrc={"https://static.wikia.nocookie.net/monsterhunter/images/4/49/MHW-Great_Sword_Equipment_Render_001.png"}
+        boxSize={"140px"} />
+      <TechBox title={"SAMPLE TITLE"} text={
+        <div>
+          <h1>h1</h1>
+          <h2>h2</h2>
+          <h3>h3</h3>
+          <h4>h4</h4>
+          <h5>h5</h5>
+          <h6>h6</h6>
+          <p>
+            This is a text box with cool stuff in it.
+          </p>
+        </div>
+      } imgSrc={""}
+        boxSize={"400px"} />
+      <TechBox title={"SAMPLE TITLE"} text={
+        <div>
+          <h1>h1</h1>
+          <h2>h2</h2>
+          <h3>h3</h3>
+          <h4>h4</h4>
+          <h5>h5</h5>
+          <h6>h6</h6>
+          <p>
+            This is a text box with cool stuff in it.
+          </p>
+        </div>
+      } imgSrc={""}
+        boxSize={"400px"} />
+      <TechBox title={"SAMPLE TITLE"} text={
+        <div>
+          <h1>h1</h1>
+          <h2>h2</h2>
+          <h3>h3</h3>
+          <h4>h4</h4>
+          <h5>h5</h5>
+          <h6>h6</h6>
+          <p>
+            This is a text box with cool stuff in it.
+          </p>
+        </div>
+      } imgSrc={""}
+        boxSize={"400px"} />
+      <TechBox title={"SAMPLE TITLE"} text={
+        <div>
+          <h1>h1</h1>
+          <h2>h2</h2>
+          <h3>h3</h3>
+          <h4>h4</h4>
+          <h5>h5</h5>
+          <h6>h6</h6>
+          <p>
+            This is a text box with cool stuff in it.
+          </p>
+        </div>
+      } imgSrc={""}
+        boxSize={"400px"} />
+      <TechBox title={"SAMPLE TITLE"} text={
+        <div>
+          <h1>h1</h1>
+          <h2>h2</h2>
+          <h3>h3</h3>
+          <h4>h4</h4>
+          <h5>h5</h5>
+          <h6>h6</h6>
+          <p>
+            This is a text box with cool stuff in it.
+          </p>
+        </div>
+      } imgSrc={""}
+        boxSize={"400px"} />
+    </div>
   );
 }
