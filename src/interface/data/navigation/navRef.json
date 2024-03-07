@@ -1,0 +1,28 @@
+{
+    "navRef": [
+        {
+            "label": "HOME",
+            "ref": "/"
+        },
+        {
+            "label": "FEATS",
+            "ref": "/feats"
+        },
+        {
+            "label": "ITEMS",
+            "ref": "/items"
+        },
+        {
+            "label": "MONSTERS",
+            "ref": "/items"
+        },
+        {
+            "label": "GLOSSARY",
+            "ref": "/glossary"
+        },
+        {
+            "label": "RADIO",
+            "ref": "/player"
+        }
+    ]
+}
