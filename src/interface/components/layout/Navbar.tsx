@@ -26,7 +26,7 @@ function NavRef() {
     return (
         <div className="menuContainer">
             {navRef.map((navItem, i) => (
-                <a href={navItem.ref} className="menuRef">
+                <a href={navItem.ref} className="menuRef" key={"menuRef".concat(i.toString())}>
                     <div className="menuTile" onMouseOver={() => {
                         setTopDmdPos((snapGrid[i] - 84).toString().concat("px"))
                         setAccDmdPos((snapGrid[i] - 87).toString().concat("px"))
