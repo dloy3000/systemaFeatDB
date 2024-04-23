@@ -27,9 +27,6 @@ export default function RootLayout({
             {children}
           </div>
         </div>
-        <video autoPlay muted loop>
-          <iframe src="https://www.youtube.com/embed/Yj2iELI6OeI?&autoplay=1&mute=1&playsinline=1"></iframe>
-        </video>
       </body>
     </html >
   )
