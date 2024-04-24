@@ -1,6 +1,6 @@
 'use client'
 
-import { ConstructQuery, TableQuery } from "@/api/getTableReq";
+import { ReqAPI } from "@/api/util";
 import TechBox from "@/interface/tiles/card/TechBox";
 import { useEffect, useState } from "react"
 
@@ -8,8 +8,17 @@ export default function Feats() {
     const [data, setData] = useState();
 
     useEffect(() => {
-        const { operation, query } = ConstructQuery('Glossary')
-        TableQuery(query);
+
+        const content = {
+            table: 'Glossary',
+            operation: 'SELECT',
+            columns: '*',
+            params: ['LIMIT 5']
+        }
+
+        const dat = ReqAPI(content);
+        console.log(dat);
+
     }, [])
 
     return (
