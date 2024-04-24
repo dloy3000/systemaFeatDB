@@ -1,1 +1,3 @@
-'use server'
+export async function request(request: Request) {
+    return undefined
+}
