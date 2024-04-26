@@ -1,7 +1,9 @@
 'use client'
 
-import { ReqAPI } from "@/api/util";
+import { ConstructSelector } from "@/api/utilConstruct";
+import { ReqAPI } from "@/api/utilReq";
 import TechBox from "@/interface/tiles/card/TechBox";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react"
 
 export default function Feats() {
@@ -9,16 +11,9 @@ export default function Feats() {
 
     useEffect(() => {
 
-        const content = {
-            table: 'Glossary',
-            operation: 'SELECT',
-            columns: '*',
-            params: ['LIMIT 5']
-        }
+        const selectors = ConstructSelector(1);
 
-        const dat = ReqAPI(content);
-        console.log(dat);
-
+        const dat = ReqAPI(selectors);
     }, [])
 
     return (
