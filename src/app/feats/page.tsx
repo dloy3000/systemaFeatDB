@@ -10,8 +10,13 @@ export default function Feats() {
     const [data, setData] = useState();
 
     useEffect(() => {
+        const testItem = {
+            key: 'Keyword',
+            comparator: 'NOT LIKE',
+            value: 'Stockpile'
+        };
 
-        const selectors = ConstructSelector(1);
+        const selectors = ConstructSelector("glossary", false, [testItem]);
 
         const dat = ReqAPI(selectors);
     }, [])
