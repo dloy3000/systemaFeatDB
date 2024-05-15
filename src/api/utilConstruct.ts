@@ -22,8 +22,14 @@ export function ConstructQuery(table: string,
     let query = operation.concat(` ${columns} ${operation === 'SELECT' ? 'FROM' : ''} ${table}`); //Base Query.
 
     /**
-     * Params are constructed in the proper format {['KEY'] = 'PARAM'} externally.
-     * The param headers are matched such that the query can be parameterized ('KEY=$index').
+     * Params are constructed in the proper format [...{key, comparator, value}] externally.
+     * The param headers are matched such that the query can be parameterized 'KEY (comparator) $index'.
+     * EXAMPLE: 
+        const param = {
+            key: 'Keyword',
+            comparator: 'NOT LIKE',
+            value: 'Stockpile'
+        };
      */
     if (params.length !== 0) {
         //Used for modular mapping.
@@ -74,7 +80,7 @@ export function ConstructURLParams(queryParam: {
  * Creates a selector object. This method/object is just for standardization purposes.
  * @param table Table (1 : Glossary, 2 : Feats, 3 : Items, 4 : Monsters).
  * @param nameOnly Boolean. Determines whether to return name/keyword only, or all columns (*). 
- * @param params Parameters used to filter query results. 
+ * @param params Parameters used to filter query results. This is in the format [...{key, comparator, value}].
  * @param pageLim Max number of rows to be returned.
  * @param pageNum Offset for rows. 
  * @returns 
