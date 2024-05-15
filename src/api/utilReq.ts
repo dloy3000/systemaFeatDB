@@ -9,8 +9,11 @@ import { ConstructURLParams } from "./utilConstruct";
  * @param docType Doctype for request body.
  * @returns A response containing the requested data, or an error. 
  */
-export async function ReqAPI(selectors: { [key: string]: number | string | string[] | boolean | undefined },
-    endpoint: string = 'http://localhost:3000/api/POST/glossary',
+export async function ReqAPI(selectors: {
+    [key: string]: number | string | string[] | boolean |
+    { key: string, comparator: string, value: string | number }[] | undefined
+},
+    endpoint: string = 'http://localhost:3000/api/POST/SELECT',
     restMethod: string = 'POST', docType: string = 'application/json') {
     const reqHeaders = new Headers();
     reqHeaders.append("Accept", docType);
