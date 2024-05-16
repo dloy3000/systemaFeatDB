@@ -1,6 +1,6 @@
 'use server'
 
-import { ConstructQuery } from "@/api/utilConstruct";
+import { ConstructQuery } from "@/api/util/utilConstruct";
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
