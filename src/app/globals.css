@@ -282,7 +282,7 @@ body {
 
 /* Navbar Containers */
 .navContainer {
-    display: inline-flex;
+    display: inline-block;
     padding: 12px;
 }
 
@@ -298,7 +298,7 @@ body {
     padding: 12px;
     padding-left: 40px;
     padding-right: 34px;
-    min-height: 40px;
+    min-height: max-content;
     min-width: 40px;
 }
 
@@ -326,6 +326,19 @@ body {
 
     transform: scale(1.02);
     transition: transform 0.6s ease;
+}
+
+.footContainer {
+    display: flex;
+    padding: 12px;
+    justify-content: flex-end;
+}
+
+.copyTile {
+    display: block;
+    align-self: flex-end;
+
+    padding: 12px;
 }
 
 /* Card Grid */

@@ -1,5 +1,6 @@
 import NavBar from "@/interface/components/layout/Navbar"
 import "./globals.css"
+import Footer from "@/interface/components/layout/Footer"
 
 export const metadata = {
   title: 'SYSTEMA Feat DB',
@@ -26,6 +27,9 @@ export default function RootLayout({
           <div className="bodyContainer">
             {children}
           </div>
+        </div>
+        <div className="footContainer">
+          <Footer />
         </div>
       </body>
     </html >

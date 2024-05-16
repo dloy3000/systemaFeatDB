@@ -4,7 +4,7 @@
  * @param {*} param0 Text, passed either as a string or html.
  * @returns A tilecard element.
  */
-function TitleTile({ title }) {
+export function TitleTile({ title }) {
     return (
         <div className="techBox title">
             <h1 className="cardTitle">{title}</h1>
@@ -17,7 +17,7 @@ function TitleTile({ title }) {
  * @param {*} param0 Text, passed either as a string or html.
  * @returns A tilecard element.
  */
-function TextTile({ text }) {
+export function TextTile({ text }) {
     return (
         <div className="techBox text">
             {text}
@@ -30,7 +30,7 @@ function TextTile({ text }) {
  * @param {*} param0 An object containing {box size, image source, alt fallback}
  * @returns A tilecard element.
  */
-function ItemTile({ boxSize, imgSrc, alt }) {
+export function ItemTile({ boxSize, imgSrc, alt }) {
     return (
         <div className="techBox display">
             <img src={imgSrc} width={boxSize} height={boxSize} alt={alt} />
