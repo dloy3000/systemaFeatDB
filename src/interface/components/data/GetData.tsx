@@ -36,9 +36,9 @@ export default function GetPage(pageData: { page: string, pageNum: number, pageL
     return (
         <>
             <SearchBox setFields={setFields} />
-            {data.map((item) => {
+            {data.map((item, i) => {
                 return (
-                    <div className="cardGrid">
+                    <div className="cardGrid" key={i}>
                         <div className="cardContainer">
                             <TextTile text={
                                 //@ts-ignore
