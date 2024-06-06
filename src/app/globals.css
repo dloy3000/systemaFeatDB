@@ -85,6 +85,27 @@ video {
     border: 0;
 }
 
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
 /* color palette */
 :root {
     background-color: transparent;
@@ -438,6 +459,30 @@ body {
         linear-gradient(45deg, transparent 0px 24px, var(--containerSecondaryHighlight) 24px 50.0%, transparent 50%);
 }
 
+/* Search Box */
+.searchBox {
+    padding: 12px;
+    padding-left: 40px;
+    padding-right: 34px;
+
+    font-family: 'Squarified';
+    font-size: x-large;
+    color: var(--textPrimary);
+
+    border: none;
+    border-radius: 6px;
+
+    outline: none;
+    background-color: var(--bgPrimary);
+}
+
+.searchBox:hover,
+.searchBox:focus {
+    background-color: var(--containerPrimaryHighlight);
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
 /* Decorations */
 .divider {
     min-height: 1px;
@@ -518,6 +563,31 @@ body {
     left: 31px;
 }
 
+.searchButton {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    transform: rotate(315deg);
+}
+
+.searchButton.closed {
+    background-color: var(--textPrimary);
+    background-image: url("../../public/icons/Search.png");
+    background-size: contain;
+}
+
+.searchButton.open {
+    background-color: var(--textHighlight);
+    background-image: url("../../public/icons/Plus.png");
+    background-size: contain;
+}
+
+.searchButton:hover {
+    transform: scale(1.2) rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
 .displayPos {
     position: absolute;
     left: -50px
@@ -530,6 +600,16 @@ body {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes spinS {
+    0% {
+        transform: rotate(315deg);
+    }
+
+    100% {
+        transform: rotate(-45deg);
     }
 }
 

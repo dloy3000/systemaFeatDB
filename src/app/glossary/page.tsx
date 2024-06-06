@@ -1,28 +1,15 @@
 'use client'
 
-import { ConstructSelector } from "@/api/util/utilConstruct";
-import { ReqAPI } from "@/api/util/utilReq";
+import LoadResults from "@/api/search/loadResults";
 import TechBox from "@/interface/tiles/card/TechBox";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react"
+import { SearchBox } from "@/interface/tiles/search/SearchBox";
 
 export default function Feats() {
-    const [data, setData] = useState();
-
-    useEffect(() => {
-        const testItem = {
-            key: 'Keyword',
-            comparator: 'NOT LIKE',
-            value: 'Stockpile'
-        };
-
-        const selectors = ConstructSelector("glossary", false, [testItem]);
-
-        const dat = ReqAPI(selectors);
-    }, [])
+    LoadResults("glossary");
 
     return (
         <div>
+            <SearchBox />
             <TechBox title={"Power On!"} text={
                 <div>
                     <h1>h1</h1>
