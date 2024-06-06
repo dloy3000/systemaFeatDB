@@ -1,10 +1,15 @@
 'use client'
 
-import { FormEvent, useEffect, useState } from "react"
+import { Dispatch, FormEvent, SetStateAction, useState } from "react"
 
-export function SearchBox() {
+/**
+ * Primary searchbar component. 
+ * @param setStateFunc A prop containing a useState function passed in order to retrieve data from the searchbar.
+ * @returns Searchbar element.
+ */
+export function SearchBox(setStateFunc: { setFields: Dispatch<SetStateAction<string>> }) {
     const [search, openSearch] = useState(false);
-    const [fields, setFields] = useState("");
+    const { setFields } = setStateFunc;
 
     return (
         <div className="cardGrid">
