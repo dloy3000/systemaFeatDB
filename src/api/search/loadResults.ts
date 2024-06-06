@@ -1,29 +1,34 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { ConstructSelector } from "../util/utilConstruct";
 import { ReqAPI } from "../util/utilReq";
 
-export default function LoadResults(table: string,) {
-    const [data, setData] = useState({});
-    const [loaded, setLoaded] = useState(false);
+/**
+ * Takes a selector object, makes a query request to PostGres,
+ * and returns the resultant data.
+ * @param selectors Selector Object. Use ConstructSelector(...) to create selectors.
+ * @returns Query result or error.
+ */
+export default function LoadResults(setRows:
+    Dispatch<SetStateAction<{
+        data: {}[],
+        loaded: boolean
+    }>>,
+    selectors: {
+        tableID: string,
+        pageLimit: number,
+        pageOffset: number,
+        nameOnly: boolean,
+        params: { key: string, comparator: string, value: string | number }[]
+    }) {
 
-    useEffect(() => {
-        const testItem = {
-            key: 'Keyword',
-            comparator: 'NOT LIKE',
-            value: 'Stockpile'
-        };
-
-        const selectors = ConstructSelector(table, true, [testItem]);
-
-        const dat = ReqAPI(selectors)
-            .then(resp => resp.json())
-            .then(({ response }) => {
-                setData(response.response.rows);
-                setLoaded(response.loaded);
-            }).catch(err => console.error("ERROR: %s", err));
-    }, [])
-
-    return { data, loaded };
+    const dat = ReqAPI(selectors)
+        .then(resp => resp.json())
+        .then(({ response }) => {
+            setRows({ data: response.response.rows, loaded: response.loaded });
+        }).catch(err => {
+            console.error("ERROR: %s", err);
+            setRows({ data: [{ err }], loaded: true });
+        });
 }
